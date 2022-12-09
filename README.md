@@ -37,6 +37,19 @@ Example of electron app with multiple windows.
 ```
 As you can see the `html` index is always the same, but the `js` bundles are poiting to different locations.
 
+### Main Process
+
+Each entry point has two globals defined based on the name assigned to your entry point:
+* The renderer's entry point will be suffixed with _WEBPACK_ENTRY.
+* The renderer's preload script will be suffixed with _PRELOAD_WEBPACK_ENTRY
+```ts
+declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
+declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
+
+declare const OTHER_WEBPACK_ENTRY: string;
+declare const OTHER_PRELOAD_WEBPACK_ENTRY: string;
+```
+
 ## How to manage shared imports
 You probably want to share **styles** or **providers** across all your windows:
 
