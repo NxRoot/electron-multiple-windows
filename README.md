@@ -5,6 +5,7 @@ Example of electron app with multiple windows.
 * This example was inspired by [this issue](https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues/623), and an old [approach](https://medium.com/@ZoeDreams/multiple-electron-windows-using-a-view-manager-and-react-js-6d8b1e209faf) from 2017.
 * Bundles are now handled individually, instead of duplicating the entire bundle.
 * Redirection is done with [@electron-forge/plugin-webpack](https://www.electronforge.io/config/plugins/webpack) entrypoints, instead of react-router.
+* We also use [electron-forge](https://www.electronforge.io/) to package our application.
 
 ## How does it work
 ### The real magic happens in the webpack entrypoints:
@@ -36,7 +37,7 @@ Example of electron app with multiple windows.
 ```
 As you can see the `html` index is always the same, but the `js` bundles are poiting to different locations.
 
-### How to manage shared imports
+## How to manage shared imports
 You probably want to share **styles** or **providers** across all your windows:
 
 <img src="https://i.ibb.co/V32QRdZ/indexmodules.png" style="width: 200px" alt="Alt text" title="Optional title">
