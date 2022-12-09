@@ -1,0 +1,111 @@
+{
+  "name": "electron-multiple-windows",
+  "productName": "electron-multiple-windows",
+  "version": "1.0.0",
+  "description": "Electron Multiple Windows",
+  "main": ".webpack/main",
+  "homepage": "/",
+  "build": {
+    "appId": "elec.multiplewin.com",
+    "asar": false
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --ext .ts,.tsx ."
+  },
+  "keywords": [],
+  "author": {
+    "name": "NxRoot"
+  },
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@rabbitholesyndrome/electron-forge-maker-portable",
+          "config": {
+            "productName": "electron-multiple-windows",
+            "portable": {
+              "artifactName": "${productName}.exe"
+            }
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "plugins": [
+        [
+          "@electron-forge/plugin-webpack",
+          {
+            "mainConfig": "./webpack.main.config.js",
+            "renderer": {
+              "config": "./webpack.renderer.config.js",
+              "entryPoints": [
+                {
+                  "html": "./src/windows/index.html",
+                  "js": "./src/windows/home/index.tsx",
+                  "name": "main_window"
+                },
+                {
+                  "html": "./src/windows/index.html",
+                  "js": "./src/windows/other/index.tsx",
+                  "name": "other"
+                }
+              ]
+            }
+          }
+        ]
+      ]
+    }
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.64",
+    "@electron-forge/maker-deb": "^6.0.0-beta.64",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.64",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.64",
+    "@electron-forge/maker-zip": "^6.0.0-beta.64",
+    "@electron-forge/plugin-webpack": "6.0.0-beta.64",
+    "@rabbitholesyndrome/electron-forge-maker-portable": "^0.1.1",
+    "@svgr/webpack": "^6.2.1",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "@vercel/webpack-asset-relocator-loader": "1.7.0",
+    "css-loader": "^6.0.0",
+    "electron": "^12.2.3",
+    "eslint": "^8.0.1",
+    "eslint-plugin-import": "^2.25.0",
+    "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^7.2.1",
+    "node-loader": "^2.0.0",
+    "react-svg-loader": "^3.0.3",
+    "style-loader": "^3.0.0",
+    "ts-loader": "^9.2.2",
+    "typescript": "~4.5.4"
+  },
+  "dependencies": {
+    "@types/node": "^18.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-tsparticles": "^1.37.5"
+  }
+}
