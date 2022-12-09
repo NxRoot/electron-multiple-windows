@@ -44,4 +44,34 @@ You probably want to share **styles** or **providers** across all your windows:
 > The default `index.tsx` is always the top level of your application where you can wrap providers.
 
 **Component imports are managed **automatically** by webpack configuration.** (Each bundle requires used imports only)
+
+
+# Available Scripts
+
+In the project directory, you can run:
+
+### Starting
+
+### `npm start`
+
+Runs the app in the development mode.
+
+### Building
+
+### `npm run make`
+
+So you've got an amazing application there, and you want to package it all up and share it with the world. If you run the make script, Electron Forge will generate you platform specific distributables for you to share with everyone.
+
+### Publishing
+
+### `npm run publish`
+
+Now you have distributables that you can share with your users. If you run the publish script, Electron Forge will then publish the platform-specific distributables for you, using the publishing method of your choice.
+
+## Learn More
+
+You can learn more in the [Electron-Forge documentation](https://www.electronforge.io/).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
  
