@@ -1,6 +1,6 @@
-import {app, BrowserWindow} from "electron"
+import {app, BrowserWindow, BrowserWindowConstructorOptions} from "electron"
 
-export const makeWindow = (PRELOAD, URL, more?) => {
+export const makeWindow = (PRELOAD, URL, more?: BrowserWindowConstructorOptions) => {
     // Create the browser window.
     const win = new BrowserWindow({
       show: false,

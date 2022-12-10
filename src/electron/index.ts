@@ -53,6 +53,10 @@ app.on('activate', () => {
 ipcMain.on("open_page", (e, page) => {
   win2 = makeWindow(
     OTHER_PRELOAD_WEBPACK_ENTRY, 
-    OTHER_WEBPACK_ENTRY
+    OTHER_WEBPACK_ENTRY, 
+    {
+      width: 600,
+      height: 400
+    }
   )
 })
