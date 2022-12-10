@@ -23,7 +23,10 @@ let win, win2
 const createWindow = (): void => { 
   win = makeWindow(
     MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY, 
-    MAIN_WINDOW_WEBPACK_ENTRY
+    MAIN_WINDOW_WEBPACK_ENTRY,
+    {
+      title: "Window 1",
+    }
   ) 
 };
 
@@ -55,6 +58,7 @@ ipcMain.on("open_page", (e, page) => {
     OTHER_PRELOAD_WEBPACK_ENTRY, 
     OTHER_WEBPACK_ENTRY, 
     {
+      title: "Window 2",
       width: 600,
       height: 400
     }
