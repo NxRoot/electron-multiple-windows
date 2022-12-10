@@ -2,7 +2,7 @@
 Example of electron app with multiple windows.
 
 ## Description
-* This example was inspired by [this issue](https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues/623), and an old [approach](https://medium.com/@ZoeDreams/multiple-electron-windows-using-a-view-manager-and-react-js-6d8b1e209faf) from 2017.
+* This example was inspired by [this issue](https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues/623), and an [old approach](https://medium.com/@ZoeDreams/multiple-electron-windows-using-a-view-manager-and-react-js-6d8b1e209faf) from 2017.
 * Bundles are now handled individually, instead of duplicating the entire bundle.
 * Redirection is done with [@electron-forge/plugin-webpack](https://www.electronforge.io/config/plugins/webpack) entrypoints, instead of react-router.
 * We also use [electron-forge](https://www.electronforge.io/) to package our application.
@@ -43,9 +43,10 @@ Each entry point has two globals defined based on the name assigned to your entr
 * The renderer's entry point will be suffixed with _WEBPACK_ENTRY.
 * The renderer's preload script will be suffixed with _PRELOAD_WEBPACK_ENTRY
 ```ts
+// Window 1
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string;
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string;
-
+// Window 2
 declare const OTHER_WEBPACK_ENTRY: string;
 declare const OTHER_PRELOAD_WEBPACK_ENTRY: string;
 ```
